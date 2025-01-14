@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-       account: [961151274109, 007164760974]
+       account: ["961151274109", "007164760974"]
     steps:
       # AWS credentials configuration
       - name: Configure AWS credentials
