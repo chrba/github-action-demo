@@ -1,0 +1,42 @@
+name: Deploy CDK
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+    id-token: write
+    packages: write # Required to pull from GHCR
+    contents: read # This is required for actions/checkout
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       account: [961151274109, 007164760974]
+    steps:
+      # AWS credentials configuration
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+            role-to-assume: arn:aws:iam::${{ matrix.account }}:role/RoleForGitHubActions
+            aws-region: eu-central-1
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install CDK and dependencies
+        run: |
+          npm ci
+
+      - name: Deploy CDK Stack
+        run: |
+          echo "Deploying cdk application to account ${{ matrix.account }}
+          npx cdk deploy -c account=${{ matrix.account.id }} -c region=eu-central-1  --all --require-approval never
