@@ -38,5 +38,5 @@ jobs:
 
       - name: Deploy CDK Stack
         run: |
-          echo "Deploying cdk application to account ${{ matrix.account }}
+          echo "Deploying cdk application to account ${{ matrix.account }}"
           npx cdk deploy -c account=${{ matrix.account.id }} -c region=eu-central-1  --all --require-approval never
