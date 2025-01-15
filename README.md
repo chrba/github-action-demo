@@ -1,8 +1,8 @@
-Demo Project: GitHub Action Matrix Deployment
+# Demo Project: GitHub Action Matrix Deployment
 
 This project demonstrates the deployment of an AWS CDK (Cloud Development Kit) application using a GitHub Action with a matrix configuration to support multiple AWS accounts simultaneously.
 
-Key Features
+## Key Features
 
 1. CDK Integration:
     The project leverages AWS CDK to define infrastructure as code (IaC), making deployments repeatable and version-controlled.
