@@ -1,0 +1,16 @@
+name: test-sqs
+
+on:
+  workflow_dispatch: 
+
+permissions:
+    id-token: write
+    contents: read 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+     
+      - name: Install CDK and dependencies
+        run: echo "Hello, world"
