@@ -1,16 +1,14 @@
-name: Service 1 Name 3
-
+name: Astro-Voyager
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 permissions:
     id-token: write
-    contents: read 
+    contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-     
-      - name: Install CDK and dependencies
+      - name: Hello
         run: echo "Hello, world"
